@@ -31,7 +31,7 @@ pipeline {
                 dir('build') {
                     sh 'pwd'
                     sh 'ls -al'
-                    sh '../sqlite/configure'
+                    sh 'sh ../sqlite/configure'
                     sh 'make'    
                     sh 'make sqlite3.c'
                     sh 'make quicktest'
