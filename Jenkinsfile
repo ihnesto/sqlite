@@ -27,7 +27,7 @@ pipeline {
         }
         stage('Compile') {
             steps {
-                sh 'mkdir build'
+                sh 'mkdir -p build'
                 dir('build') {
                     sh 'pwd'
                     sh 'ls -al'
