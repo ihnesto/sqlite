@@ -48,7 +48,7 @@ pipeline {
         stage('Deploy') {
             steps{
                 sshagent(credentials : ['test-deploy']) {
-                    sh 'scp .build/sqlite3 root@b.simplehub.xyz:/root/'
+                    sh 'scp ./build/sqlite3 root@b.simplehub.xyz:/root/'
                 }
     }
 
