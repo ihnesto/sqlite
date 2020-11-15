@@ -6,7 +6,7 @@ pipeline {
   
     
     stages {
-        /* stage('Checkout SCM') {
+        stage('Checkout SCM') {
             steps {
                 checkout([
                  $class: 'GitSCM',
@@ -17,7 +17,7 @@ pipeline {
                  ]]
                 ])
             }
-        } */
+        } 
 
         stage('Get src') {
             steps {
@@ -31,12 +31,16 @@ pipeline {
         stage('Compile') {
             steps {
                 sh 'mkdir -p ./build'
-                dir('./build') {
-                    sh 'pwd'
-                    sh 'ls -al'
+                dir('./build') 
                     sh '../sqlite/configure'
                     sh 'make'    
                     sh 'make sqlite3.c'
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                dir('./build') 
                     sh 'make quicktest'
                 }
             }
