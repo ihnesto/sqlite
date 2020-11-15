@@ -31,7 +31,7 @@ pipeline {
         stage('Compile') {
             steps {
                 sh 'mkdir -p ./build'
-                dir('./build') 
+                dir('./build') {
                     sh '../sqlite/configure'
                     sh 'make'    
                     sh 'make sqlite3.c'
