@@ -2,9 +2,7 @@ properties([pipelineTriggers([githubPush()])])
 
 pipeline {
     agent any
-
   
-    
     stages {
         stage('Checkout SCM') {
             steps {
