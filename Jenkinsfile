@@ -40,7 +40,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                dir('./build') 
+                dir('./build') {
                     sh 'make quicktest'
                 }
             }
