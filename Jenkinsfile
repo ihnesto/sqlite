@@ -21,14 +21,17 @@ pipeline {
 
         stage('Get src') {
             steps {
-                // sh 'git clone https://github.com/ihnesto/popa3d.git'
-                git 'https://github.com/ihnesto/sqlite.git'
+                sh 'mkdir -p ./sqlite'
+                dir('./sqlite') {
+                    // sh 'git clone https://github.com/ihnesto/popa3d.git'
+                    git 'https://github.com/ihnesto/sqlite.git'
+                }
             }
         }
         stage('Compile') {
             steps {
-                sh 'mkdir -p ../build'
-                dir('../build') {
+                sh 'mkdir -p ./build'
+                dir('./build') {
                     sh 'pwd'
                     sh 'ls -al'
                     sh '../sqlite/configure'
